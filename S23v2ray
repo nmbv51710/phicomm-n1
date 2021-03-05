@@ -1,0 +1,18 @@
+#!/bin/sh
+
+ENABLED=yes
+PROCS=v2ray
+ARGS="-config /opt/etc/v2ray/config.json"
+PREARGS=""
+DESC=$PROCS
+POSTCMD="sleep 1"
+PATH=/opt/sbin:/opt/bin:/opt/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+export V2RAY_LOCATION_ASSET=/opt/etc/v2ray
+export V2RAY_LOCATION_CONFIG=/opt/etc/v2ray
+export V2RAY_BUF_READV=auto
+export V2RAY_RAY_BUFFER_SIZE=2
+
+[ -z "$(which $PROCS)" ] && exit 0
+
+. /opt/etc/init.d/rc.func

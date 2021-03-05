@@ -1,0 +1,13 @@
+[Unit]
+Description=V2ray Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/etc/init.d/S23v2ray start
+ExecStop=/opt/etc/init.d/S23v2ray stop
+
+[Install]
+WantedBy=multi-user.target
